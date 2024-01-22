@@ -7,7 +7,7 @@ use std::process::Command;
 fn get_go_bin() -> String {
     if cfg!(target_family = "unix") {
         let output = String::from_utf8(
-            Command::new("/usr/bin/which")
+            Command::new("which") // # derp
                 .arg("go")
                 .output()
                 .map_err(|e| println!("cargo:warning=Couldn't find `which` command: {e}"))
